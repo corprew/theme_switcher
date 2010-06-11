@@ -32,21 +32,18 @@ class block_theme_switcher extends block_base {
                 $USER->loggedin = NULL;
 		if (($USER->loggedin or !isguest()) and !empty($CFG->allowuserthemes)) { // Show the block
 			//display a simple form to switch the theme
-			$this->content->text .= '<form class="theme_switcher_form" name="themeswitch" method="post" action="'.$CFG->wwwroot.'/blocks/theme_switcher/savetheme.php">'; 
-			//$this->content->text .= '<table align="center" cellpadding="0" cellspacing="0" class="theme_switcher_table"><tr><td>';
-			$this->content->text .= '<ul style="list-style-type: none;"><li>'; // Added style here as bullets sometimes appear even though in defined in styles.php
-			$this->content->text .= choose_from_menu($themes, 'theme', $USER->theme, "", "", "","true");
-			$this->content->text .= '</li><li>';
-			$this->content->text .= '<input type="submit" value="Save" />';
-
-			//hidden fields to tell the user edit form who we are/where we came from
-			//$this->content->text .= '<input type="hidden" name="id" value="'.$USER->id.'" />';//replaced with $USER->id
+			$this->content->text .= '<form class="theme_switcher_form" name="themeswitch" method="get" action="'.$CFG->wwwroot.'/blocks/theme_switcher/savetheme.php">';
+                        $this->content->text .= '<input type="image" src="/theme/gc_theme_01/icon.png" value="gc_theme_01" name="gc_theme_01">';
+                        $this->content->text .= '<input type="hidden" value="gc_theme_01" name="theme">';
+                        $this->content->text .= '<input type="hidden" name="sesskey" value="'.sesskey().'" /> ';
 			$this->content->text .= '<input type="hidden" name="location" value="'.$location.'" />';
-
-			//finish the form 
-			//$this->content->text .= '</td></tr></table></form>';
-			$this->content->text .= '</li></ul></form>';
-
+			$this->content->text .= '</form>';
+			$this->content->text .= '<form class="theme_switcher_form" name="themeswitch" method="get" action="'.$CFG->wwwroot.'/blocks/theme_switcher/savetheme.php">';
+                        $this->content->text .= '<input type="image" src="/theme/gc_theme_02/icon.png" value="gc_theme_02" name="gc_theme_02">';
+                        $this->content->text .= '<input type="hidden" value="gc_theme_02" name="theme">';
+                        $this->content->text .= '<input type="hidden" name="sesskey" value="'.sesskey().'" /> ';
+                        $this->content->text .= '<input type="hidden" name="location" value="'.$location.'" />';
+			$this->content->text .= '</form>';
 			//text for footer
 			//$this->content->footer .= 'You are here: '.$location.'<br />';
 			//$this->content->footer .= 'Select your preferred theme';
