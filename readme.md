@@ -1,6 +1,6 @@
 # Description:
 
-this is a moodle theme switcher block that will run on moodle 1.9.x, where x > 7.   it doesn't generate the errors or warnings that similar blocks generate, which makes it useful for demonstration purpose.
+this is a moodle theme switcher block that will run on moodle 1.9.x, where x > 7.   it doesn't generate the errors or warnings that similar blocks generate, which makes it useful for demonstration purpose.  This is archived because moodle 1.9.x is way past its support date.
 
 --corprew
 
